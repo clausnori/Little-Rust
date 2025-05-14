@@ -1,17 +1,18 @@
 {
-  "name": "acode-plugin",
+  "name": "rust_analise",
   "version": "1.0.0",
-  "description": "Template for Acode plugin",
+  "description": "Claus",
   "main": "src/main.js",
-  "repository": "https://github.com/Acode-Foundation/acode-plugin.git",
-  "author": "Acode Foundation",
+  "repository": "https://github.com/clausnori/Little-Rust",
+  "author": "Claus Nori",
   "license": "MIT",
   "dependencies": {
     "@types/ace": "^0.0.50",
-    "html-tag-js": "^1.1.41"
+    "html-tag-js": "^1.1.41",
+    "isomorphic-ws": "^5.0.0"
   },
   "devDependencies": {
-    "esbuild": "^0.24.0",
+    "esbuild": "^0.25.4",
     "jszip": "^3.10.1"
   },
   "scripts": {
