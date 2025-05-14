@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Прозрачное окно без блокировки страницы</title>
+  <style>
+    .floating-window {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 220px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+      touch-action: none;
+      user-select: none;
+      z-index: 9999;
+      pointer-events: none; /* окно не мешает кликам */
+    }
+
+    .floating-header {
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.95);
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+      cursor: move;
+      pointer-events: auto; /* только заголовок обрабатывает клики */
+      border-radius: 8px 8px 0 0;
+    }
+
+    .floating-content {
+      padding: 10px;
+      pointer-events: none; /* тело не мешает */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Пример обычного содержимого страницы -->
+<button onclick="alert('Ты нажал кнопку!')">Кнопка на странице</button>
+
+<script>
+function createFloatingWindow() {
+  const win = document.createElement('div');
+  win.className = 'floating-window';
+
+  const header = document.createElement('div');
+  header.className = 'floating-header';
+  header.textContent = 'Перетащи меня';
+
+  const content = document.createElement('div');
+  content.className = 'floating-content';
+  content.textContent = 'Это окно не блокирует страницу.';
+
+  win.appendChild(header);
+  win.appendChild(content);
+  document.body.appendChild(win);
+
+  let offsetX = 0, offsetY = 0, isDragging = false;
+
+  function startDrag(x, y) {
+    isDragging = true;
+    offsetX = x - win.offsetLeft;
+    offsetY = y - win.offsetTop;
+  }
+
+  function onMove(x, y) {
+    if (!isDragging) return;
+    win.style.left = `${x - offsetX}px`;
+    win.style.top = `${y - offsetY}px`;
+  }
+
+  function stopDrag() {
+    isDragging = false;
+  }
+
+  // Мышь
+  header.addEventListener('mousedown', e => {
+    startDrag(e.clientX, e.clientY);
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', stopMouseDrag);
+  });
+
+  function onMouseMove(e) {
+    onMove(e.clientX, e.clientY);
+  }
+
+  function stopMouseDrag() {
+    stopDrag();
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', stopMouseDrag);
+  }
+
+  // Тач
+  header.addEventListener('touchstart', e => {
+    const t = e.touches[0];
+    startDrag(t.clientX, t.clientY);
+  });
+
+  header.addEventListener('touchmove', e => {
+    const t = e.touches[0];
+    onMove(t.clientX, t.clientY);
+  });
+
+  header.addEventListener('touchend', stopDrag);
+}
+
+createFloatingWindow();
+</script>
+
+</body>
+</html>
