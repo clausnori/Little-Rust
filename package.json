@@ -9,7 +9,10 @@
   "dependencies": {
     "@types/ace": "^0.0.50",
     "html-tag-js": "^1.1.41",
-    "isomorphic-ws": "^5.0.0"
+    "isomorphic-ws": "^5.0.0",
+    "lsp-editor-adapter": "^0.0.10",
+    "vscode-jsonrpc": "^8.2.1",
+    "vscode-languageserver-protocol": "^3.17.5"
   },
   "devDependencies": {
     "esbuild": "^0.25.4",
