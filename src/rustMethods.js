@@ -7,6 +7,12 @@ export const rustMethods = [
 		meta: "String method"
 	},
 	{
+		name: "to_string()",
+		description: "Creates a new String from a string literal.",
+		snippet: "${1:input}.to_string()",
+		meta: "String method"
+	},
+	{
 		name: "push_str",
 		description: "Appends a string slice to a String",
 		snippet: "${1:string}.push_str(${2:str})",
@@ -34,6 +40,18 @@ export const rustMethods = [
 		name: "split",
 		description: "Splits a string slice by a pattern",
 		snippet: "${1:string}.split(${2:pattern})",
+		meta: "method"
+	},
+	{
+		name: "Vec<>",
+		description: "Vec Type",
+		snippet: "Vec<{$1:type}>",
+		meta: "method"
+	},
+	{
+		name: "Box<>",
+		description: "Box Type",
+		snippet: "Box<{$1:type}>",
 		meta: "method"
 	},
 
@@ -89,13 +107,13 @@ export const rustMethods = [
 
 	// Option Methods
 	{
-		name: "Option::Some",
+		name: "Some",
 		description: "Creates a Some variant of Option containing a value",
 		snippet: "Some(${1:value})",
 		meta: "constructor"
 	},
 	{
-		name: "Option::None",
+		name: "None",
 		description: "Creates a None variant of Option",
 		snippet: "None",
 		meta: "constructor"
@@ -139,13 +157,13 @@ export const rustMethods = [
 
 	// Result Methods
 	{
-		name: "Result::Ok",
+		name: "Ok",
 		description: "Creates an Ok variant of Result containing a value",
 		snippet: "Ok(${1:value})",
 		meta: "constructor"
 	},
 	{
-		name: "Result::Err",
+		name: "Err",
 		description: "Creates an Err variant of Result containing an error",
 		snippet: "Err(${1:error})",
 		meta: "constructor"
@@ -239,13 +257,13 @@ export const rustMethods = [
 
 	// File I/O Methods
 	{
-		name: "File::open",
+		name: "openfile",
 		description: "Opens a file in read-only mode",
 		snippet: "File::open(${1:\"path\"})?",
 		meta: "method"
 	},
 	{
-		name: "File::create",
+		name: "createfile",
 		description: "Creates or truncates a file for writing",
 		snippet: "File::create(${1:\"path\"})?",
 		meta: "method"
@@ -343,13 +361,13 @@ export const rustMethods = [
 		meta: "macro"
 	},
 	{
-		name: "Result::map_err",
+		name: "map_err",
 		description: "Maps a Result's error value",
 		snippet: "${1:result}.map_err(${2:|e| })",
 		meta: "method"
 	},
 	{
-		name: "Result::and_then",
+		name: "and_then",
 		description: "Chains operations that might fail",
 		snippet: "${1:result}.and_then(${2:|value| })",
 		meta: "method"
@@ -363,31 +381,31 @@ export const rustMethods = [
 
 	// Common Traits
 	{
-		name: "Clone::clone",
+		name: "clone",
 		description: "Creates a copy of a value",
 		snippet: "${1:value}.clone()",
 		meta: "method"
 	},
 	{
-		name: "Drop::drop",
+		name: "drop",
 		description: "Manually drops a value",
 		snippet: "drop(${1:value})",
 		meta: "function"
 	},
 	{
-		name: "Default::default",
+		name: "default",
 		description: "Creates a default value for a type",
 		snippet: "${1:Type}::default()",
 		meta: "method"
 	},
 	{
-		name: "PartialEq::eq",
+		name: "eq",
 		description: "Tests for equality",
 		snippet: "${1:a}.eq(&${2:b})",
 		meta: "method"
 	},
 	{
-		name: "PartialOrd::cmp",
+		name: "cmp",
 		description: "Compares two values",
 		snippet: "${1:a}.cmp(&${2:b})",
 		meta: "method"
@@ -576,13 +594,13 @@ export const rustMethods = [
 		meta: "method"
 	},
 	{
-		name: "File::read",
+		name: "fileread",
 		description: "Reads data from a file into a buffer",
 		snippet: "${1:file}.read(&mut ${2:buffer})?",
 		meta: "method"
 	},
 	{
-		name: "File::write",
+		name: "filewrite",
 		description: "Writes data from a buffer to a file",
 		snippet: "${1:file}.write(&${2:buffer})?",
 		meta: "method"
@@ -636,25 +654,25 @@ export const rustMethods = [
 
 	// Smart Pointers
 	{
-		name: "Rc::clone",
+		name: "clone",
 		description: "Clones a reference-counted pointer",
 		snippet: "${1:rc}.clone()",
 		meta: "method"
 	},
 	{
-		name: "Weak::upgrade",
+		name: "upgrade",
 		description: "Upgrades a Weak pointer to an Rc if possible",
 		snippet: "${1:weak}.upgrade()",
 		meta: "method"
 	},
 	{
-		name: "RefCell::borrow",
+		name: "borrow",
 		description: "Immutably borrows the value inside a RefCell",
 		snippet: "${1:refcell}.borrow()",
 		meta: "method"
 	},
 	{
-		name: "RefCell::borrow_mut",
+		name: "borrow_mut",
 		description: "Mutably borrows the value inside a RefCell",
 		snippet: "${1:refcell}.borrow_mut()",
 		meta: "method"
@@ -662,7 +680,7 @@ export const rustMethods = [
 
 	// Error Handling
 	{
-		name: "Result::unwrap_err",
+		name: "unwrap_err",
 		description: "Returns the contained Err value or panics",
 		snippet: "${1:result}.unwrap_err()",
 		meta: "method"
@@ -715,4 +733,400 @@ export const rustMethods = [
 		snippet: "#[bench]\nfn ${1:test_name}(b: &mut test::Bencher) { b.iter(|| ${2:code}); }",
 		meta: "macro"
 	},
+	// --- Тригонометрические функции ---
+	{
+		name: "sin()",
+		snippet: "${1:x}.sin()",
+		description: "Trigonometry",
+		meta: "method"
+	},
+	{
+		name: "cos()",
+		snippet: "${1:x}.cos()",
+		description: "Trigonometry",
+		meta: "method"
+	},
+	{
+		name: "tan()",
+		snippet: "${1:x}.tan()",
+		description: "Trigonometry",
+		meta: "method"
+	},
+	{
+		name: "asin()",
+		snippet: "${1:x}.asin()",
+		description: "Inverse Trigonometry",
+		meta: "method"
+	},
+	{
+		name: "acos()",
+		snippet: "${1:x}.acos()",
+		description: "Inverse Trigonometry",
+		meta: "method"
+	},
+	{
+		name: "atan()",
+		snippet: "${1:x}.atan()",
+		description: "Inverse Trigonometry",
+		meta: "method"
+	},
+	{
+		name: "atan2()",
+		snippet: "${1:y}.atan2(${2:x})",
+		description: "atan2(y, x)",
+		meta: "method"
+	},
+
+	// --- Гиперболические функции ---
+	{
+		name: "sinh()",
+		snippet: "${1:x}.sinh()",
+		description: "Hyperbolic",
+		meta: "method"
+	},
+	{
+		name: "cosh()",
+		snippet: "${1:x}.cosh()",
+		description: "Hyperbolic",
+		meta: "method"
+	},
+	{
+		name: "tanh()",
+		snippet: "${1:x}.tanh()",
+		description: "Hyperbolic",
+		meta: "method"
+	},
+
+	// --- Логарифмические функции ---
+	{
+		name: "ln()",
+		snippet: "${1:x}.ln()",
+		description: "Natural logarithm",
+		meta: "method"
+	},
+	{
+		name: "log10()",
+		snippet: "${1:x}.log10()",
+		description: "Base-10 logarithm",
+		meta: "method"
+	},
+	{
+		name: "log2()",
+		snippet: "${1:x}.log2()",
+		description: "Base-2 logarithm",
+		meta: "method"
+	},
+	{
+		name: "ln_1p()",
+		snippet: "${1:x}.ln_1p()",
+		description: "ln(1 + x)",
+		meta: "method"
+	},
+
+	// --- Экспоненциальные функции ---
+	{
+		name: "exp()",
+		snippet: "${1:x}.exp()",
+		description: "e^x",
+		meta: "method"
+	},
+	{
+		name: "exp2()",
+		snippet: "${1:x}.exp2()",
+		description: "2^x",
+		meta: "method"
+	},
+	{
+		name: "exp_m1()",
+		snippet: "${1:x}.exp_m1()",
+		description: "e^x - 1",
+		meta: "method"
+	},
+
+	// --- Степенные функции ---
+	{
+		name: "powf()",
+		snippet: "${1:x}.powf(${2:p})",
+		description: "x^p",
+		meta: "method"
+	},
+	{
+		name: "sqrt()",
+		snippet: "${1:x}.sqrt()",
+		description: "Square root",
+		meta: "method"
+	},
+	{
+		name: "cbrt()",
+		snippet: "${1:x}.cbrt()",
+		description: "Cube root",
+		meta: "method"
+	},
+	{
+		name: "hypot()",
+		snippet: "${1:x}.hypot(${2:y})",
+		description: "Hypotenuse",
+		meta: "method"
+	},
+
+	// --- Функции округления ---
+	{
+		name: "round()",
+		snippet: "${1:x}.round()",
+		description: "Round to nearest integer",
+		meta: "method"
+	},
+	{
+		name: "floor()",
+		snippet: "${1:x}.floor()",
+		description: "Round down",
+		meta: "method"
+	},
+	{
+		name: "ceil()",
+		snippet: "${1:x}.ceil()",
+		description: "Round up",
+		meta: "method"
+	},
+	{
+		name: "trunc()",
+		snippet: "${1:x}.trunc()",
+		description: "Truncate decimal",
+		meta: "method"
+	},
+	{
+		name: "fract()",
+		snippet: "${1:x}.fract()",
+		description: "Fractional part",
+		meta: "method"
+	},
+
+	// --- Методы проверки ---
+	{
+		name: "is_nan()",
+		snippet: "${1:x}.is_nan()",
+		description: "Check NaN",
+		meta: "method"
+	},
+	{
+		name: "is_finite()",
+		snippet: "${1:x}.is_finite()",
+		description: "Check finite",
+		meta: "method"
+	},
+	{
+		name: "is_infinite()",
+		snippet: "${1:x}.is_infinite()",
+		description: "Check infinity",
+		meta: "method"
+	},
+	{
+		name: "is_normal()",
+		snippet: "${1:x}.is_normal()",
+		description: "Check normal",
+		meta: "method"
+	},
+	{
+		name: "is_subnormal()",
+		snippet: "${1:x}.is_subnormal()",
+		description: "Check subnormal",
+		meta: "method"
+	},
+
+	// --- Методы сравнения ---
+	{
+		name: "min()",
+		snippet: "${1:x}.min(${2:y})",
+		description: "Minimum",
+		meta: "method"
+	},
+	{
+		name: "max()",
+		snippet: "${1:x}.max(${2:y})",
+		description: "Maximum",
+		meta: "method"
+	},
+	{
+		name: "partial_cmp()",
+		snippet: "${1:x}.partial_cmp(&${2:y})",
+		description: "Partial comparison",
+		meta: "method"
+	},
+
+	// --- Работа с знаком ---
+	{
+		name: "abs()",
+		snippet: "${1:x}.abs()",
+		description: "Absolute value",
+		meta: "method"
+	},
+	{
+		name: "signum()",
+		snippet: "${1:x}.signum()",
+		description: "Sign",
+		meta: "method"
+	},
+	{
+		name: "copysign()",
+		snippet: "${1:x}.copysign(${2:sign})",
+		description: "Copy sign",
+		meta: "method"
+	},
+
+	// --- Методы разбора ---
+	{
+		name: "to_bits()",
+		snippet: "${1:x}.to_bits()",
+		description: "To raw bits",
+		meta: "method"
+	},
+	{
+		name: "from_bits()",
+		snippet: "f32::from_bits(${1:bits})",
+		description: "From raw bits",
+		meta: "method"
+	},
+	{
+		name: "is_alphabetic()",
+		description: "Checks if the character is alphabetic (letters like a-z, A-Z, and other Unicode alphabets)",
+		snippet: "${1:ch}.is_alphabetic()",
+		meta: "method"
+	},
+	{
+		name: "is_numeric()",
+		description: "Checks if the character is numeric (digits like 0-9 and other Unicode digits)",
+		snippet: "${1:ch}.is_numeric()",
+		meta: "method"
+	},
+	{
+		name: "to_uppercase()",
+		description: "Returns an iterator over the uppercase equivalent(s) of the character (may produce multiple characters)",
+		snippet: "${1:ch}.to_uppercase()",
+		meta: "method"
+	},
+	{
+		name: "to_lowercase()",
+		description: "Returns an iterator over the lowercase equivalent(s) of the character (may produce multiple characters)",
+		snippet: "${1:ch}.to_lowercase()",
+		meta: "method"
+	},
+	{
+		name: "binary_search()",
+		description: "Performs a binary search on sorted slice, returning Ok(index) if found or Err(insert_index) if not found.",
+		snippet: "${1:arr}.binary_search(&${2:item})",
+		meta: "method"
+	},
+	{
+		name: "contains()",
+		description: "Checks if the slice contains a given element using linear search.",
+		snippet: "${1:arr}.contains(&${2:item})",
+		meta: "method"
+	},
+	{
+		name: "sort()",
+		description: "Sorts the slice in place using an adaptive, stable, and memory-efficient sort.",
+		snippet: "${1:arr}.sort()",
+		meta: "method"
+	},
+  // Combinators
+  {
+    name: "map()",
+    description: "Transforms each element of the iterator using the provided function",
+    snippet: "${1:iter}.map(|x| { /* transform x */ })",
+    meta: "method"
+  },
+  {
+    name: "filter()",
+    description: "Filters elements, keeping only those for which the predicate returns true",
+    snippet: "${1:iter}.filter(|x| { /* condition */ })",
+    meta: "method"
+  },
+  {
+    name: "take()",
+    description: "Takes the first n elements from the iterator and stops",
+    snippet: "${1:iter}.take(${2:n})",
+    meta: "method"
+  },
+  {
+    name: "skip()",
+    description: "Skips the first n elements and yields the rest",
+    snippet: "${1:iter}.skip(${2:n})",
+    meta: "method"
+  },
+  {
+    name: "chain()",
+    description: "Chains two iterators sequentially, yielding all elements from the first, then the second",
+    snippet: "${1:iter1}.chain(${2:iter2})",
+    meta: "method"
+  },
+  {
+    name: "zip()",
+    description: "Combines two iterators into a single iterator of pairs",
+    snippet: "${1:iter1}.zip(${2:iter2})",
+    meta: "method"
+  },
+  {
+    name: "enumerate()",
+    description: "Yields pairs (index, element) where index is the element's position starting at 0",
+    snippet: "${1:iter}.enumerate()",
+    meta: "method"
+  },
+
+  // Consumers (Collection and Reduction)
+  {
+    name: "collect()",
+    description: "Collects all elements from the iterator into a collection (e.g., Vec, HashSet)",
+    snippet: "${1:iter}.collect::<${2:Vec<_}>>()",
+    meta: "method"
+  },
+  {
+    name: "count()",
+    description: "Counts the number of elements in the iterator",
+    snippet: "${1:iter}.count()",
+    meta: "method"
+  },
+  {
+    name: "sum()",
+    description: "Computes the sum of all elements (requires elements to implement Add + Zero)",
+    snippet: "${1:iter}.sum::<${2:i32}>()",
+    meta: "method"
+  },
+  {
+    name: "fold()",
+    description: "Accumulates all elements by repeatedly applying a closure, starting from an initial value",
+    snippet: "${1:iter}.fold(${2:init}, |acc, x| { /* combine acc and x */ })",
+    meta: "method"
+  },
+  {
+    name: "reduce()",
+    description: "Combines elements using a closure without an initial value (returns Option)",
+    snippet: "${1:iter}.reduce(|acc, x| { /* combine acc and x */ })",
+    meta: "method"
+  },
+
+  // Specific iterator methods
+  {
+    name: "rev()",
+    description: "Reverses the direction of the iterator (only for DoubleEndedIterator)",
+    snippet: "${1:iter}.rev()",
+    meta: "method"
+  },
+  {
+    name: "peekable()",
+    description: "Creates an iterator that allows peeking at the next element without consuming it",
+    snippet: "${1:iter}.peekable()",
+    meta: "method"
+  },
+  {
+    name: "inspect()",
+    description: "Calls a closure on each element for side effects, passing elements through unchanged",
+    snippet: "${1:iter}.inspect(|x| { /* side effect */ })",
+    meta: "method"
+  },
+  {
+    name: "cmp()",
+    description: "Calls a closure on each element for side effects, passing elements through unchanged",
+    snippet: "${1:iter}.inspect(|x| { /* side effect */ })",
+    meta: "method"
+  }
 ];

@@ -323,20 +323,6 @@ export const rustSnippets = [
     type: "Test"
   },
   {
-    prefix: "assert_eq",
-    snippet: "assert_eq!($1, $2);",
-    description: "Assert equals",
-    fileTypes: ["rust"],
-    type: "Test"
-  },
-  {
-    prefix: "assert_ne",
-    snippet: "assert_ne!($1, $2);",
-    description: "Assert not equals",
-    fileTypes: ["rust"],
-    type: "Test"
-  },
-  {
     prefix: "panic",
     snippet: "panic!(\"$1\");",
     description: "Panic",
@@ -531,7 +517,7 @@ export const rustSnippets = [
 
   // Дополнительные структуры данных
   {
-    prefix: "vec",
+    prefix: "vec[]",
     snippet: "vec![$0]",
     description: "Create a new vector",
     fileTypes: ["rust"],
