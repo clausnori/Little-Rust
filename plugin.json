@@ -2,7 +2,7 @@
   "id": "acode.plugin.rust_claus",
   "name": "Little Rust",
   "main": "main.js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "readme": "readme.md",
   "icon": "icon.png",
   "files": ["icon-method.png","icon-snippet.png"],
@@ -10,7 +10,7 @@
   "license": "MIT",
   "changelogs": "changelogs.md",
   "keywords": [],
-  "price": 41,
+  "price": 0,
   "author": {
     "name": "Claus Nori",
     "email": "",
