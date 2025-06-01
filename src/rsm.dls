@@ -1,0 +1,1124 @@
+[snippet]
+prefix = "type<>"
+fileTypes = "rust"
+description = "type"
+snippet = "<${1:T}>"
+
+[snippet]
+prefix = "let"
+fileTypes = "rust"
+description = "type"
+snippet = "let ${1:x}${2::${3:<T>}} = ${4:&a}"
+
+[snippet]
+prefix = "iflet"
+fileTypes = "rust"
+description = "If let"
+snippet = "if let ${1:Some(x)} = ${2:expr} {\n    ${3:// code}\n}"
+
+[snippet]
+prefix = "letmut"
+fileTypes = "rust"
+description = "type"
+snippet = "let mut ${1:x}${2::${3:<T>}} = ${4:&a}"
+
+[snippet]
+prefix = "life <'>"
+fileTypes = "rust"
+description = "lifetime"
+snippet = "<'${1:T}>"
+
+[snippet]
+prefix = "link&"
+fileTypes = "rust"
+description = "link"
+snippet = "&${1:T}"
+
+[snippet]
+prefix = "linkmut &mut"
+fileTypes = "rust"
+description = "type"
+snippet = "&mut ${1:T}"
+
+
+[snippet]
+prefix = "fn"
+fileTypes = "rust"
+description = "function"
+snippet = "fn ${1:name}(${2:args}) -> ${3:ReturnType} {\n    ${4:// code}\n}"
+
+[snippet]
+prefix = "mainfn"
+fileTypes = "rust"
+description = "function"
+snippet = "fn main(){\n    ${4:// code}\n}"
+
+[snippet]
+prefix = "pubfn"
+fileTypes = "rust"
+description = "public function"
+snippet = "pub fn ${1:name}(${2:args}) -> ${3:ReturnType} {\n    ${4:// code}\n}"
+
+[snippet]
+prefix = "async"
+fileTypes = "rust"
+description = "async function"
+snippet = "async fn ${1:name}(${2:args}) -> ${3:Result<T, E>} {\n    ${4:// code}\n}"
+
+[snippet]
+prefix = "struct"
+fileTypes = "rust"
+description = "struct definition"
+snippet = "struct ${1:Name} {\n    ${2:field}: ${3:Type},\n}"
+
+[snippet]
+prefix = "pubstruct"
+fileTypes = "rust"
+description = "struct definition"
+snippet = "pub struct ${1:Name} {\n    pub ${2:field}: ${3:Type},\n}"
+
+[snippet]
+prefix = "impl"
+fileTypes = "rust"
+description = "implementation block"
+snippet = "impl ${1:Name} {\n    ${2:// methods}\n}"
+
+[snippet]
+prefix = "newconstr"
+fileTypes = "rust"
+description = "constructor"
+snippet = "pub fn new(${1:args}) -> Self {\n    Self {\n        ${2:// fields}\n    }\n}"
+
+[snippet]
+prefix = "enum"
+fileTypes = "rust"
+description = "enum definition"
+snippet = "enum ${1:Name} {\n    ${2:Variant},\n}"
+
+[snippet]
+prefix = "pubenum"
+fileTypes = "rust"
+description = "enum definition"
+snippet = "pub enum ${1:Name} {\n    pub ${2:Variant},\n}"
+
+[snippet]
+prefix = "trait"
+fileTypes = "rust"
+description = "trait definition"
+snippet = "trait ${1:Name} {\n    ${2:fn method(&self);}\n}"
+
+[snippet]
+prefix = "pubtrait"
+fileTypes = "rust"
+description = "trait definition"
+snippet = "pub trait ${1:Name} {\n   pub ${2:fn method(&self);}\n}"
+
+# КОНТРОЛЬ ПОТОКА
+
+[snippet]
+prefix = "if"
+fileTypes = "rust"
+description = "if statement"
+snippet = "if ${1:condition} {\n    ${2:// code}\n}"
+
+[snippet]
+prefix = "ife"
+fileTypes = "rust"
+description = "if else"
+snippet = "if ${1:condition} {\n    ${2:// code}\n} else {\n    ${3:// code}\n}"
+
+[snippet]
+prefix = "match"
+fileTypes = "rust"
+description = "match expression"
+snippet = "match ${1:expr} {\n    ${2:pattern} => ${3:value},\n    _ => ${4:default},\n}"
+
+[snippet]
+prefix = "while"
+fileTypes = "rust"
+description = "while loop"
+snippet = "while ${1:condition} {\n    ${2:// code}\n}"
+
+[snippet]
+prefix = "loop"
+fileTypes = "rust"
+description = "infinite loop"
+snippet = "loop {\n    ${1:// code}\n    break;\n}"
+
+[snippet]
+prefix = "for"
+fileTypes = "rust"
+description = "for loop range"
+snippet = "for ${1:i} in ${2:slise} {\n    ${3:// code}\n}"
+
+[snippet]
+prefix = "forin"
+fileTypes = "rust"
+description = "for in iterator"
+snippet = "for ${1:item} in ${2:iterator} {\n    ${3:// code}\n}"
+
+# ОБРАБОТКА ОШИБОК
+
+[snippet]
+prefix = "result"
+fileTypes = "rust"
+description = "Result type"
+snippet = "Result<${1:T}, ${2:E}>"
+
+[snippet]
+prefix = "option"
+fileTypes = "rust"
+description = "Option type"
+snippet = "Option<${1:T}>"
+
+[snippet]
+prefix = "unwrap"
+fileTypes = "rust"
+description = "unwrap or panic"
+snippet = "unwrap()"
+
+[snippet]
+prefix = "expect"
+fileTypes = "rust"
+description = "expect with message"
+snippet = ".expect(\"${2:message}\")"
+
+[snippet]
+prefix = "exp?"
+fileTypes = "rust"
+description = "question mark operator"
+snippet = "?"
+
+[snippet]
+prefix = "ok"
+fileTypes = "rust"
+description = "Ok variant"
+snippet = "Ok(${1:value})"
+
+[snippet]
+prefix = "err"
+fileTypes = "rust"
+description = "Err variant"
+snippet = "Err(${1:error})"
+
+[snippet]
+prefix = "some"
+fileTypes = "rust"
+description = "Some variant"
+snippet = "Some(${1:value})"
+
+[snippet]
+prefix = "none"
+fileTypes = "rust"
+description = "None variant"
+snippet = "None"
+
+# ВЕКТОРЫ И КОЛЛЕКЦИИ
+
+[snippet]
+prefix = "Vec"
+fileTypes = "rust"
+description = "new vector"
+snippet = "Vec::new()"
+
+[snippet]
+prefix = "vecmac"
+fileTypes = "rust"
+description = "vector macro"
+snippet = "vec![${1:elements}]"
+
+[snippet]
+prefix = "HashMap"
+fileTypes = "rust"
+description = "new HashMap"
+snippet = "HashMap::new()"
+
+[snippet]
+prefix = "BTreeMap"
+fileTypes = "rust"
+description = "new BTreeMap"
+snippet = "BTreeMap::new()"
+
+[snippet]
+prefix = "HashSet"
+fileTypes = "rust"
+description = "new HashSet"
+snippet = "HashSet::new()"
+
+# СТРОКИ
+
+[snippet]
+prefix = "String"
+fileTypes = "rust"
+description = "new String"
+snippet = "String::new()"
+
+[snippet]
+prefix = "strfrom"
+fileTypes = "rust"
+description = "String from"
+snippet = "String::from(\"${1:text}\")"
+
+[snippet]
+prefix = "format"
+fileTypes = "rust"
+description = "format macro"
+snippet = "format!(\"${1:format}\", ${2:args})"
+
+[snippet]
+prefix = "print"
+fileTypes = "rust"
+description = "print macro"
+snippet = "print!(\"${1:text}\");"
+
+[snippet]
+prefix = "println"
+fileTypes = "rust"
+description = "println macro"
+snippet = "println!("{}",${1:text});"
+
+[snippet]
+prefix = "eprint"
+fileTypes = "rust"
+description = "eprint macro"
+snippet = "eprint!("${1:text}");"
+
+[snippet]
+prefix = "eprintln"
+fileTypes = "rust"
+description = "eprintln macro"
+snippet = "eprintln!("${1:text}");"
+
+# ФАЙЛЫ И IO
+
+[snippet]
+prefix = "file"
+fileTypes = "rust"
+description = "File::open"
+snippet = "File::open("${1:path}")"
+
+[snippet]
+prefix = "filecreate"
+fileTypes = "rust"
+description = "File::create"
+snippet = "File::create("${1:path}")"
+
+[snippet]
+prefix = "read"
+fileTypes = "rust"
+description = "read_to_string"
+snippet = "fs::read_to_string("${1:path}")"
+
+[snippet]
+prefix = "readiostring"
+fileTypes = "rust"
+description = "read_to_string"
+snippet = "io::sdtdin::read_to_string(&mut ${1:path})"
+
+[snippet]
+prefix = "write"
+fileTypes = "rust"
+description = "fs::write"
+snippet = "fs::write("${1:path}", ${2:contents})"
+
+# ТЕСТЫ
+
+[snippet]
+prefix = "test"
+fileTypes = "rust"
+description = "test function"
+snippet = "#[test]\nfn ${1:test_name}() {\n    ${2:// test code}\n}"
+
+[snippet]
+prefix = "assert"
+fileTypes = "rust"
+description = "assert macro"
+snippet = "assert!(${1:condition});"
+
+[snippet]
+prefix = "asserteq"
+fileTypes = "rust"
+description = "assert_eq macro"
+snippet = "assert_eq!(${1:left}, ${2:right});"
+
+[snippet]
+prefix = "assertne"
+fileTypes = "rust"
+description = "assert_ne macro"
+snippet = "assert_ne!(${1:left}, ${2:right});"
+
+# МОДУЛИ И USE
+
+[snippet]
+prefix = "mod"
+fileTypes = "rust"
+description = "module"
+snippet = "mod ${1:name} {\n    ${2:// module content}\n}"
+
+[snippet]
+prefix = "pubmod"
+fileTypes = "rust"
+description = "module"
+snippet = "pub mod ${1:name} {\n    ${2:// module content}\n}"
+
+[snippet]
+prefix = "use"
+fileTypes = "rust"
+description = "use statement"
+snippet = "use ${1:path};"
+
+[snippet]
+prefix = "extern"
+fileTypes = "rust"
+description = "extern crate"
+snippet = "extern crate ${1:name};"
+
+# DERIVE МАКРОСЫ
+
+[snippet]
+prefix = "derive"
+fileTypes = "rust"
+description = "derive macro"
+snippet = "#[derive(${1:Debug})]"
+
+[snippet]
+prefix = "debug devire"
+fileTypes = "rust"
+description = "derive Debug"
+snippet = "#[derive(Debug)]"
+
+[snippet]
+prefix = "clone devire"
+fileTypes = "rust"
+description = "derive Clone"
+snippet = "#[derive(Clone)]"
+
+# МЕТОДЫ ДЛЯ ПРИМИТИВОВ
+
+# i32/i64/u32/u64 методы
+[method]
+name = "abs"
+meta = "std::primitive"
+description = "Returns the absolute value of a number.\n\nFor signed numeric types, returns the non-negative value of `self`.\n\n```rust\nlet x: i32 = -5;\nassert_eq!(x.abs(), 5);\n\nlet y: f64 = -3.14;\nassert_eq!(y.abs(), 3.14);\n```"
+snippet = "abs()"
+
+[method]
+name = "pow"
+meta = "std::primitive"
+description = "Returns the value of the number raised to the power of `exp`.\n\nFor integer types, `exp` is an unsigned integer.\n\n```rust\nlet x: i32 = 2;\nassert_eq!(x.pow(3), 8);\n\nlet y: f64 = 3.0;\nassert_eq!(y.powf(2.0), 9.0); // note: powf for floating-point\n```"
+snippet = "pow(${2:exp})"
+
+[method]
+name = "max"
+meta = "std::primitive"
+description = "Returns the maximum of `self` and `b`.\n\n```rust\nlet a = 5;\nlet b = 10;\nassert_eq!(a.max(b), 10);\n\nlet x = 3.5;\nlet y = 2.7;\nassert_eq!(x.max(y), 3.5);\n```"
+snippet = "max(${2:b})"
+
+[method]
+name = "min"
+meta = "std::primitive"
+description = "Returns the minimum of `self` and `b`.\n\n```rust\nlet a = 5;\nlet b = 10;\nassert_eq!(a.min(b), 5);\n\nlet x = 3.5;\nlet y = 2.7;\nassert_eq!(x.min(y), 2.7);\n```"
+snippet = "min(${2:b})"
+
+[method]
+name = "clamp"
+meta = "std::primitive"
+description = "Restricts a value to be within the range defined by `min` and `max`.\n\nReturns `min` if `self` is less than `min`, returns `max` if `self` is greater than `max`, otherwise returns `self`.\n\n```rust\nlet x = 5;\nassert_eq!(x.clamp(1, 10), 5);\nassert_eq!(x.clamp(6, 10), 6);\nassert_eq!(x.clamp(1, 4), 4);\n```"
+snippet = "clamp(${2:min}, ${3:max})"
+
+[method]
+name = "saturating_add"
+meta = "std::primitive"
+description = "Performs saturating addition. Returns the sum of `self` and `b`, but saturates at the numeric bounds instead of overflowing.\n\n```rust\nlet max = u8::MAX;\nassert_eq!(max.saturating_add(1), max);\n\nlet x = 100u8;\nlet y = 27u8;\nassert_eq!(x.saturating_add(y), 127);\n```"
+snippet = "saturating_add(${2:b})"
+
+[method]
+name = "wrapping_add"
+meta = "std::primitive"
+description = "Performs addition that wraps around on overflow.\n\nIf the result exceeds the maximum value for the type, it wraps around starting from zero.\n\n```rust\nlet max = u8::MAX;\nassert_eq!(max.wrapping_add(1), 0);\n\nlet x = 250u8;\nlet y = 10u8;\nassert_eq!(x.wrapping_add(y), 4);\n```"
+snippet = "wrapping_add(${2:b})"
+
+[method]
+name = "checked_add"
+meta = "std::primitive"
+description = "Performs addition that returns `None` if overflow occurs.\n\nReturns `Some(result)` if addition does not overflow, otherwise returns `None`.\n\n```rust\nlet max = u8::MAX;\nassert_eq!(max.checked_add(1), None);\n\nlet x = 100u8;\nlet y = 27u8;\nassert_eq!(x.checked_add(y), Some(127));\n```"
+snippet = "checked_add(${2:b})"
+
+# f32/f64 методы
+[method]
+name = "sqrt"
+meta = "std::primitive"
+description = "Returns the square root of a number.\n\nFor floating-point types, calculates the non-negative square root of `self`.\n\n```rust\nlet x = 9.0f64;\nassert_eq!(x.sqrt(), 3.0);\n\nlet y = 2.0f32;\nassert!((y.sqrt() - 1.4142).abs() < 0.0001);\n```"
+snippet = "sqrt()"
+
+[method]
+name = "sin"
+meta = "std::primitive"
+description = "Returns the sine of a number (in radians).\n\nCalculates the trigonometric sine function for `self`.\n\n```rust\nlet x = std::f64::consts::FRAC_PI_2; // π/2 radians\nassert!((x.sin() - 1.0).abs() < 1e-10);\n```"
+snippet = "sin()"
+
+[method]
+name = "cos"
+meta = "std::primitive"
+description = "Returns the cosine of a number (in radians).\n\nCalculates the trigonometric cosine function for `self`.\n\n```rust\nlet x = 0.0f64;\nassert!((x.cos() - 1.0).abs() < 1e-10);\n\nlet y = std::f64::consts::PI; // π radians\nassert!((y.cos() + 1.0).abs() < 1e-10);\n```"
+snippet = "cos()"
+
+[method]
+name = "floor"
+meta = "std::primitive"
+description = "Returns the largest integer less than or equal to `self`.\n\nFor floating-point numbers, rounds down to the nearest whole number.\n\n```rust\nlet x = 3.7f64;\nassert_eq!(x.floor(), 3.0);\n\nlet y = -3.7f64;\nassert_eq!(y.floor(), -4.0);\n```"
+snippet = "floor()"
+
+[method]
+name = "ceil"
+meta = "std::primitive"
+description = "Returns the smallest integer greater than or equal to `self`.\n\nFor floating-point numbers, rounds up to the nearest whole number.\n\n```rust\nlet x = 3.2f64;\nassert_eq!(x.ceil(), 4.0);\n\nlet y = -3.2f64;\nassert_eq!(y.ceil(), -3.0);\n```"
+snippet = "ceil()"
+
+[method]
+name = "round"
+meta = "std::primitive"
+description = "Rounds to the nearest integer.\n\nFor floating-point numbers, rounds half-way cases away from zero.\n\n```rust\nlet x = 3.5f64;\nassert_eq!(x.round(), 4.0);\n\nlet y = 3.4f64;\nassert_eq!(y.round(), 3.0);\n\nlet z = -3.5f64;\nassert_eq!(z.round(), -4.0);\n```"
+snippet = "round()"
+
+[method]
+name = "trunc"
+meta = "std::primitive"
+description = "Returns the integer part of a number by truncating the fractional part.\n\nFor floating-point numbers, removes the decimal portion without rounding.\n\n```rust\nlet x = 3.7f64;\nassert_eq!(x.trunc(), 3.0);\n\nlet y = -3.7f64;\nassert_eq!(y.trunc(), -3.0);\n```"
+snippet = "trunc()"
+
+[method]
+name = "is_nan"
+meta = "f64 std::primitive"
+description = "Checks if the number is 'Not a Number' (NaN).\n\nReturns `true` if the value is NaN, otherwise `false`.\n\n```rust\nlet x = 0.0f64 / 0.0;\nassert!(x.is_nan());\n\nlet y = 1.0f64;\nassert!(!y.is_nan());\n```"
+snippet = "is_nan()"
+
+[method]
+name = "is_infinite"
+meta = "f64 std::primitive"
+description = "Checks if the number is infinite (positive or negative).\n\nReturns `true` if the value is positive or negative infinity, otherwise `false`.\n\n```rust\nlet x = 1.0f64 / 0.0;\nassert!(x.is_infinite());\n\nlet y = -1.0f64 / 0.0;\nassert!(y.is_infinite());\n\nlet z = 42.0f64;\nassert!(!z.is_infinite());\n```"
+snippet = "is_infinite()"
+
+# bool методы
+[method]
+name = "then"
+meta = "bool std::primitive"
+description = "Executes the given closure and returns `Some` with its result if the boolean is `true`.\nOtherwise, returns `None`.\n\nThis is useful for conditional expression chains.\n\n```rust\nlet condition = true;\nlet result = condition.then(|| \"Success!\");\nassert_eq!(result, Some(\"Success!\"));\n\nlet condition = false;\nlet result = condition.then(|| \"Failure\");\nassert_eq!(result, None);\n```"
+snippet = "then(|| ${2:value})"
+
+[method]
+name = "then_some"
+meta = "bool std::primitive"
+description = "Returns `Some(value)` if the boolean is `true`, otherwise returns `None`.\n\nThis method provides a concise way to conditionally create an `Option` based on a boolean.\n\n```rust\nlet condition = true;\nlet result = condition.then_some(42);\nassert_eq!(result, Some(42));\n\nlet condition = false;\nlet result = condition.then_some(42);\nassert_eq!(result, None);\n```"
+snippet = "then_some(${2:value})"
+
+# char методы
+[method]
+name = "is_alphabetic"
+meta = "char std::primitive"
+description = "Checks if the character is alphabetic.\n\nReturns `true` if the character is a letter (A-Z, a-z, or any Unicode alphabetic character), otherwise `false`.\n\n```rust\nlet c = 'a';\nassert!(c.is_alphabetic());\n\nlet c = '1';\nassert!(!c.is_alphabetic());\n```"
+snippet = "is_alphabetic()"
+
+[method]
+name = "is_numeric"
+meta = "char std::primitive"
+description = "Checks if the character is numeric.\n\nReturns `true` if the character represents a digit (0-9) or any Unicode numeric character, otherwise `false`.\n\n```rust\nlet c = '5';\nassert!(c.is_numeric());\n\nlet c = 'a';\nassert!(!c.is_numeric());\n```"
+snippet = "is_numeric()"
+
+[method]
+name = "is_whitespace"
+meta = "char std::primitive"
+description = "Checks if the character is whitespace.\n\nReturns `true` if the character is a whitespace character, including spaces, tabs, newlines, and other Unicode whitespace characters.\n\n```rust\nlet c = ' ';\nassert!(c.is_whitespace());\n\nlet c = '\\n';\nassert!(c.is_whitespace());\n\nlet c = 'a';\nassert!(!c.is_whitespace());\n```"
+snippet = "is_whitespace()"
+
+[method]
+name = "to_lowercase"
+meta = "char std::primitive"
+description = "Returns an iterator that yields the lowercase equivalent(s) of the character.\n\nSome characters may map to multiple lowercase characters (e.g., 'İ').\n\n```rust\nlet c = 'A';\nlet lower: String = c.to_lowercase().collect();\nassert_eq!(lower, \"a\");\n\nlet c = 'İ';\nlet lower: String = c.to_lowercase().collect();\nassert_eq!(lower, \"i̇\"); // Note: 'i' + combining dot\n```"
+snippet = "to_lowercase()"
+
+[method]
+name = "to_uppercase"
+meta = "char std::primitive"
+description = "Returns an iterator that yields the uppercase equivalent(s) of the character.\n\nSome characters may map to multiple uppercase characters (e.g., 'ß').\n\n```rust\nlet c = 'a';\nlet upper: String = c.to_uppercase().collect();\nassert_eq!(upper, \"A\");\n\nlet c = 'ß';\nlet upper: String = c.to_uppercase().collect();\nassert_eq!(upper, \"SS\");\n```"
+snippet = "to_uppercase()"
+
+# String методы
+[method]
+name = "String::new"
+meta = "std::string::String"
+description = "Creates a new empty `String`.\n\nThe string has a length of 0 and no allocated buffer initially.\n\n```rust\nlet s = String::new();\nassert!(s.is_empty());\n```"
+snippet = "String::new()"
+
+[method]
+name = "String::from"
+meta = "std::string::String"
+description = "Creates a new `String` by copying from a string slice (`&str`).\n\nThis allocates memory and copies the data from the slice into the new owned `String`.\n\n```rust\nlet s = String::from(\"hello\");\nassert_eq!(s, \"hello\");\n```"
+snippet = "from(\"${1:text}\")"
+
+[method]
+name = "String::with_capacity"
+meta = "std::string::String"
+description = "String with capacity"
+snippet = "with_capacity(${1:capacity})"
+[method]
+name = "push String"
+meta = "std::string::String"
+description = "Appends the given char to the end of this String.\n```rust let mut s = String::from("abc");\n s.push('1');```"
+snippet = "push('${2:ch}')"
+[method]
+name = "push_str String"
+meta = "std::string::String"
+description = "Push string slice"
+snippet = "push_str(\"${2:text}\")"
+
+[method]
+name = "String::pop"
+meta = "std::string::String"
+description = "Pop last character"
+snippet = "pop()"
+
+[method]
+name = "len String"
+meta = "std::string::String"
+description = "String length"
+snippet = "len()"
+
+[method]
+name = "is_empty()"
+meta = "std::string::String"
+description = "Check if empty"
+snippet = "is_empty()"
+
+[method]
+name = "clear()"
+meta = "std::string::String"
+description = "Clear string"
+snippet = "clear()"
+
+[method]
+name = "contains()"
+meta = "std::string::String"
+description = "Check if contains"
+snippet = "contains("${2:pattern}")"
+
+[method]
+name = "starts_with"
+meta = "std::string::String"
+description = "Check if starts with"
+snippet = "starts_with("${2:prefix}")"
+
+[method]
+name = "ends_with()"
+meta = "std::string::String"
+description = "Check if ends with"
+snippet = "ends_with("${2:suffix}")"
+
+[method]
+name = "split()"
+meta = "std::string::String"
+description = "Split string"
+snippet = "split("${2:pattern}")"
+
+[method]
+name = "replace()"
+meta = "std::string::String"
+description = "Replace substring"
+snippet = "replace("${2:from}", "${3:to}")"
+
+[method]
+name = "trim()"
+meta = "std::string::String"
+description = "Trim whitespace"
+snippet = "trim()"
+
+[method]
+name = "to_lowercase()"
+meta = "std::string::String"
+description = "Convert to lowercase"
+snippet = "to_lowercase()"
+
+[method]
+name = "to_uppercase()"
+meta = "std::string::String"
+description = "Convert to uppercase"
+snippet = "to_uppercase()"
+
+# Vec методы
+[method]
+name = "new Vec"
+meta = "std::vec::Vec"
+description = "Creates a new, empty `Vec<T>`.\n\nThe vector will not allocate until elements are pushed onto it.\n\nReturns: `Vec<T>`\n```rust\nlet v:Vec<i32> = Vec::new();\nassert!(v.is_empty());\n```"
+snippet = "Vec::new()"
+
+[method]
+name = "with_capacity() Vec"
+meta = "std::vec::Vec"
+description = "Creates a vector with pre-allocated capacity.\n```rust\nlet v: Vec<i32> = Vec::with_capacity(10);\n```"
+snippet = "Vec::with_capacity(${1:capacity})"
+
+[method]
+name = ".push Vec"
+meta = "std::vec::Vec"
+description = "Appends an element to the back of the vector.\n\nIncreases the length of the vector by 1.\n```rust\nlet mut v = Vec::new();\nv.push(42);\nassert_eq!(v, vec![42]);\n```"
+snippet = "push(${2:item})"
+
+[method]
+name = "pop Vec"
+meta = "std::vec::Vec"
+description = "Removes the last element from the vector and returns it, or`None` if it is empty.\n```rust\nlet mut v = vec![1, 2, 3];\nassert_eq!(v.pop(),Some(3));\nassert_eq!(v, vec![1, 2]);\n```"
+snippet = "pop()"
+
+[method]
+name = "len Vec"
+meta = "std::vec::Vec"
+description = "Returns the number of elements in the vector as a `usize`.\n```rust\nlet v = vec![1, 2, 3];\nassert_eq!(v.len(), 3);\n```"
+snippet = "len()"
+
+[method]
+name = "is_empty Vec"
+meta = "std::vec::Vec"
+description = "Check if empty"
+snippet = "is_empty()"
+
+[method]
+name = "clear Vec"
+meta = "std::vec::Vec"
+description = "Clear vector"
+snippet = "clear()"
+
+[method]
+name = "get Vec"
+meta = "std::vec::Vec"
+description = "Get element at index"
+snippet = "get(${2:index})"
+
+[method]
+name = "first Vec"
+meta = "std::vec::Vec"
+description = "Get first element"
+snippet = "first()"
+
+[method]
+name = "last Vec"
+meta = "std::vec::Vec"
+description = "Get last element"
+snippet = "last()"
+
+[method]
+name = "insert Vec"
+meta = "std::vec::Vec"
+description = "Insert at index"
+snippet = "insert(${2:index}, ${3:item})"
+
+[method]
+name = "remove Vec"
+meta = "std::vec::Vec"
+description = "Remove at index"
+snippet = "remove(${2:index})"
+
+[method]
+name = "contains Vec"
+meta = "std::vec::Vec"
+description = "Check if contains"
+snippet = "contains(&${2:item})"
+
+[method]
+name = "sort Vec"
+meta = "std::vec::Vec"
+description = "Sort vector"
+snippet = "sort()"
+
+[method]
+name = "reverse Vec"
+meta = "std::vec::Vec"
+description = "Reverse vector"
+snippet = "reverse()"
+
+[method]
+name = "iter Vec"
+meta = "std::vec::Vec"
+description = "Create iterator"
+snippet = "iter()"
+
+[method]
+name = "into_iter Vec"
+meta = "std::vec::Vec"
+description = "Into iterator"
+snippet = "into_iter()"
+
+# HashMap методы
+[method]
+name = "HashMap::new"
+meta = "std::collections::HashMap"
+description = "Create empty HashMap"
+snippet = "HashMap::new()"
+
+[method]
+name = "insert HashMap"
+meta = "std::collections::HashMap"
+description = "Insert key-value pair"
+snippet = ".insert(${2:key}, ${3:value})"
+
+[method]
+name = "get HashMap"
+meta = "std::collections::HashMap"
+description = "Get value by key"
+snippet = "get(&${2:key})"
+
+[method]
+name = "contains_key HashMap"
+meta = "std::collections::HashMap"
+description = "Check if key exists"
+snippet = "contains_key(&${2:key})"
+
+[method]
+name = "remove"
+meta = "std::collections::HashMap"
+description = "Remove key-value pair"
+snippet = "remove(&${2:key})"
+
+[method]
+name = "len"
+meta = "std::collections::HashMap"
+description = "HashMap length"
+snippet = "len()"
+
+[method]
+name = "is_empty HashMap"
+meta = "std::collections::HashMap"
+description = "Check if empty"
+snippet = "is_empty()"
+
+[method]
+name = "clear HashMap"
+meta = "std::collections::HashMap"
+description = "Clear HashMap"
+snippet = "clear()"
+
+[method]
+name = "keys HashMap"
+meta = "std::collections::HashMap"
+description = "Get keys iterator"
+snippet = "keys()"
+
+[method]
+name = "values HashMap"
+meta = "std::collections::HashMap"
+description = "Get values iterator"
+snippet = "values()"
+
+[method]
+name = "iter HashMap"
+meta = "std::collections::HashMap"
+description = "Iterate over key-value pairs"
+snippet = "iter()"
+
+[method]
+name = "unwrap option"
+meta = "core::option"
+description = "Unwrap or panic"
+snippet = "unwrap()"
+
+[method]
+name = "expect option"
+meta = "core::option"
+description = "Unwrap with message"
+snippet = "expect(\"${2:message}\")"
+
+[method]
+name = "unwrap_or option"
+meta = "core::option"
+description = "Unwrap or default"
+snippet = "unwrap_or(${2:default})"
+
+[method]
+name = "unwrap_or_else option"
+meta = "core::option"
+description = "Unwrap or compute default"
+snippet = "unwrap_or_else(|| ${2:default})"
+
+[method]
+name = "is_some option"
+meta = "core::option"
+description = "Check if Some"
+snippet = "is_some()"
+
+[method]
+name = "is_none option"
+meta = "core::option"
+description = "Returns `true` if the option is `None`.\n\nOtherwise, returns `false`.\n\n```rust\nlet some_val = Some(5);\nassert!(!some_val.is_none());\n\nlet none_val: Option<i32> = None;\nassert!(none_val.is_none());\n```"
+snippet = "is_none()"
+
+[method]
+name = "map option"
+meta = "core::option"
+description = "Applies a function to the contained `Some` value, returning a new `Option` with the result.\n\nIf the option is `None`, returns `None` without calling the function.\n\n```rust\nlet some_val = Some(2);\nlet result = some_val.map(|x| x * 3);\nassert_eq!(result, Some(6));\n\nlet none_val: Option<i32> = None;\nlet result = none_val.map(|x| x * 3);\nassert_eq!(result, None);\n```"
+snippet = "map(|${2:x}| ${3:x})"
+
+[method]
+name = "and_then option"
+meta = "core::option"
+description = "Chains computations that may return `Option`, by applying a closure to the contained `Some` value.\n\nIf the option is `Some`, calls the closure with the value and returns the result.\nIf the option is `None`, returns `None` immediately.\n\n```rust\nlet some_val = Some(2);\nlet result = some_val.and_then(|x| Some(x * 3));\nassert_eq!(result, Some(6));\n\nlet none_val: Option<i32> = None;\nlet result = none_val.and_then(|x| Some(x * 3));\nassert_eq!(result, None);\n```"
+snippet = "and_then(|${2:x}| ${3:Some(x)})"
+
+[method]
+name = "or option"
+meta = "core::option"
+description = "Returns the option if it is `Some`, otherwise returns the provided `other` option.\n\n```rust\nlet some_val = Some(5);\nlet result = some_val.or(Some(10));\nassert_eq!(result, Some(5));\n\nlet none_val: Option<i32> = None;\nlet result = none_val.or(Some(10));\nassert_eq!(result, Some(10));\n```"
+snippet = "or(${2:other})"
+
+[method]
+name = "or_else option"
+meta = "core::option"
+description = "Returns the option if it is `Some`, otherwise computes an alternative option using the provided closure.\n\n```rust\nlet some_val = Some(5);\nlet result = some_val.or_else(|| Some(10));\nassert_eq!(result, Some(5));\n\nlet none_val: Option<i32> = None;\nlet result = none_val.or_else(|| Some(10));\nassert_eq!(result, Some(10));\n```"
+snippet = "or_else(|| ${2:None})"
+
+[method]
+name = "unwrap result"
+meta = "core::result"
+description = "Returns the contained `Ok` value.\n\nPanics if the result is `Err`.\n\n```rust\nlet res: Result<i32, &str> = Ok(42);\nassert_eq!(res.unwrap(), 42);\n\n// This will panic\n// let err_res: Result<i32, &str> = Err(\"error\");\n// err_res.unwrap();\n```"
+snippet = "unwrap()"
+
+[method]
+name = "expect result"
+meta = "core::result"
+description = "Unwraps the `Ok` value, panicking with a custom message if the result is `Err`.\n\nUseful for debugging with clear error messages.\n\n```rust\nlet res: Result<i32, &str> = Ok(42);\nassert_eq!(res.expect(\"Expected a value\"), 42);\n\n// This will panic with message \"Expected a value\"\n// let err_res: Result<i32, &str> = Err(\"error\");\n// err_res.expect(\"Expected a value\");\n```"
+snippet = "expect(\"${2:message}\")"
+
+[method]
+name = "unwrap_or result"
+meta = "core::result"
+description = "Returns the contained `Ok` value or a provided default if the result is `Err`.\n\n```rust\nlet res: Result<i32, &str> = Err(\"error\");\nlet val = res.unwrap_or(0);\nassert_eq!(val, 0);\n```"
+snippet = "unwrap_or(${2:default})"
+
+[method]
+name = "unwrap_or_else result"
+meta = "core::result"
+description = "Returns the contained `Ok` value or computes a default from a closure if the result is `Err`.\n\nThe closure receives the error value.\n\n```rust\nlet res: Result<i32, &str> = Err(\"error\");\nlet val = res.unwrap_or_else(|err| {\n    println!(\"Handling error: {}\", err);\n    0\n});\nassert_eq!(val, 0);\n```"
+snippet = "unwrap_or_else(|${2:err}| ${3:default})"
+
+[method]
+name = "is_ok result"
+meta = "core::result"
+description = "Returns `true` if the result is an `Ok` value.\n\nOtherwise, returns `false`.\n\n```rust\nlet res: Result<i32, &str> = Ok(42);\nassert!(res.is_ok());\n\nlet err_res: Result<i32, &str> = Err(\"error\");\nassert!(!err_res.is_ok());\n```"
+snippet = "is_ok()"
+
+[method]
+name = "is_err result"
+meta = "core::result"
+description = "Returns `true` if the result is an `Err` value.\n\nOtherwise, returns `false`.\n\n```rust\nlet res: Result<i32, &str> = Err(\"error\");\nassert!(res.is_err());\n\nlet ok_res: Result<i32, &str> = Ok(42);\nassert!(!ok_res.is_err());\n```"
+snippet = "is_err()"
+
+[method]
+name = "map result"
+meta = "core::result"
+description = "Applies a function to the success (`Ok`) value, leaving the error (`Err`) untouched.\n\nTransforms the contained value if it is `Ok`.\n\n```rust\nlet res: Result<i32, &str> = Ok(2);\nlet new_res = res.map(|x| x * 3);\nassert_eq!(new_res, Ok(6));\n```"
+snippet = "map(|${2:x}| ${3:x})"
+
+[method]
+name = "map_err result"
+meta = "core::result"
+description = "Applies a function to the error (`Err`) value, leaving the `Ok` value untouched.\n\nUseful for transforming error types.\n\n```rust\nlet res: Result<i32, &str> = Err(\"error\");\nlet new_res = res.map_err(|e| format!(\"Error: {}\", e));\nassert_eq!(new_res, Err(String::from(\"Error: error\")));\n```"
+snippet = "map_err(|${2:e}| ${3:e})"
+
+[method]
+name = "and_then result"
+meta = "core::result"
+description = "Chains computations that may fail, by applying a closure to the `Ok` value.\n\nIf the `Result` is `Ok`, the closure is called with the value and should return another `Result`.\nIf the `Result` is `Err`, it is returned immediately.\n\n```rust\nlet res: Result<i32, &str> = Ok(2);\nlet new_res = res.and_then(|x| Ok(x * 3));\nassert_eq!(new_res, Ok(6));\n```"
+snippet = "and_then(|${2:x}| ${3:Ok(x)})"
+
+[method]
+name = "or result"
+meta = "core::result"
+description = "Returns the provided `other` `Result` if the original is `Err`, otherwise returns the `Ok` value.\n\nUseful for chaining fallbacks.\n\n```rust\nlet res1: Result<i32, &str> = Err(\"error\");\nlet res2 = res1.or(Ok(42));\nassert_eq!(res2, Ok(42));\n```"
+snippet = "or(${2:other})"
+
+# Итераторы
+[method]
+name = "map iter"
+meta = "core::iter"
+description = "Transforms each element of the iterator by applying a closure, producing a new iterator of the mapped values.\n\n```rust\nlet v = vec![1, 2, 3];\nlet doubled: Vec<_> = v.into_iter().map(|x| x * 2).collect();\nassert_eq!(doubled, vec![2, 4, 6]);\n```"
+snippet = "map(|${2:x}| ${3:x})"
+
+[method]
+name = "filter iter"
+meta = "core::iter"
+description = "Creates an iterator that yields only the elements that satisfy the given predicate.\n\nThe predicate is a closure that returns `true` to keep an element or `false` to skip it.\n\n```rust\nlet v = vec![1, 2, 3, 4, 5];\nlet evens: Vec<_> = v.into_iter().filter(|x| *x % 2 == 0).collect();\nassert_eq!(evens, vec![2, 4]);\n```"
+snippet = "filter(|${2:x}| ${3:true})"
+
+[method]
+name = "fold iter"
+meta = "core::iter"
+description = "Accumulates all elements of the iterator into a single value, starting with an initial accumulator.\n\nApplies a closure that takes the accumulator and an element, returning the updated accumulator.\n\n```rust\nlet v = vec![1, 2, 3, 4];\nlet sum = v.into_iter().fold(0, |acc, x| acc + x);\nassert_eq!(sum, 10);\n```"
+snippet = "fold(${2:init}, |${3:acc}, ${4:x}| ${5:acc})"
+
+[method]
+name = "reduce iter"
+meta = "core::iter"
+description = "Reduces the elements of an iterator to a single value by repeatedly applying a closure.\n\nReturns `None` if the iterator is empty.\n\n```rust\nlet v = vec![1, 2, 3, 4];\nlet sum = v.into_iter().reduce(|acc, x| acc + x);\nassert_eq!(sum, Some(10));\n```"
+snippet = "reduce(|${2:acc}, ${3:x}| ${4:acc})"
+
+[method]
+name = "collect iter"
+meta = "core::iter"
+description = "Consumes the iterator and collects the items into a collection.\n\nThe target collection type must implement the `FromIterator` trait.\n\n```rust\nlet v = vec![1, 2, 3];\nlet collected: Vec<_> = v.into_iter().collect();\nassert_eq!(collected, vec![1, 2, 3]);\n```"
+snippet = "collect()"
+
+[method]
+name = "for_each iter"
+meta = "core::iter"
+description = "Executes a provided closure on each element of the iterator.\n\nConsumes the iterator.\n```rust\nlet v = vec![1, 2, 3];\nv.iter().for_each(|x| println!(\"{}\", x));\n```"
+snippet = "for_each(|${2:x}| ${3:()})"
+
+[method]
+name = "find iter"
+meta = "core::iter"
+description = "Finds the first element in the iterator that matches the given predicate.\n\nReturns `Some(&T)` if a matching element is found, or `None` if no match is found.\n```rust\nlet nums = [1, 2, 3, 4];\nlet first_even = nums.iter().find(|&&x| x % 2 == 0);\nassert_eq!(first_even, Some(&2));\n```"
+snippet = "find(|${2:x}| ${3:true})"
+
+[method]
+name = "any iter"
+meta = "core::iter"
+description = "Checks whether any element of the iterator satisfies the given predicate.\n\nStops iteration early if at least one element matches.\n```rust\nlet nums = [1, 3, 5, 6];\nlet has_even = nums.iter().any(|x| *x % 2 == 0);\nassert!(has_even);\n```"
+snippet = "any(|${2:x}| ${3:true})"
+
+[method]
+name = "all iter"
+meta = "core::iter"
+description = "Checks whether all elements of the iterator satisfy the given predicate.\n\nStops iteration early if any element does not satisfy the condition.\n```rust\nlet nums = [2, 4, 6];\nlet all_even = nums.iter().all(|x| *x % 2 == 0);\nassert!(all_even);\n```"
+snippet = "all(|${2:x}| ${3:true})"
+
+[method]
+name = "count iter"
+meta = "core::iter"
+description = "Consumes the iterator and returns the number of elements.\n\nThis method will iterate through all items to compute the total count.\n```rust\nlet v = vec![1, 2, 3, 4];\nlet count = v.iter().count();\nassert_eq!(count, 4);\n```"
+snippet = "count()"
+
+[method]
+name = "nth iter"
+meta = "core::iter"
+description = "Returns the `n`th element of the iterator (0-based index), consuming elements up to and including that one.\n\nReturns `None` if the iterator is shorter than `n + 1` elements.\n```rust\nlet v = vec![10, 20, 30, 40];\nlet nth = v.iter().nth(2);\nassert_eq!(nth, Some(&30));\n```"
+snippet = "nth(${2:n})"
+
+[method]
+name = "take iter"
+meta = "core::iter"
+description = "Creates an iterator that yields the first `n` elements.\n\nOnce `n` elements are yielded, the iterator stops.\n```rust\nlet v = vec![1, 2, 3, 4, 5];\nlet mut iter = v.iter().take(3);\nassert_eq!(iter.collect::<Vec<_>>(), vec![&1, &2, &3]);\n```"
+snippet = "take(${2:n})"
+
+[method]
+name = "skip iter"
+meta = "core::iter"
+description = "Creates an iterator that skips the first `n` elements.\n\nUseful for ignoring a fixed number of elements from the start.\n```rust\nlet v = vec![10, 20, 30, 40];\nlet mut iter = v.iter().skip(2);\nassert_eq!(iter.next(), Some(&30));\n```"
+snippet = "skip(${2:n})"
+
+[method]
+name = "enumerate iter"
+meta = "core::iter"
+description = "Transforms an iterator into a new iterator that yields pairs `(index, item)`.\n\nThe index starts at 0 and increments with each iteration.\n```rust\nlet items = vec![\"a\", \"b\", \"c\"];\nfor (i, val) in items.iter().enumerate() {\n    println!(\"{}: {}\", i, val);\n}\n```"
+snippet = "enumerate()"
+
+[method]
+name = "Box"
+meta = "std::boxed"
+description = "Allocates a value on the heap and returns a `Box<T>` owning it.\n\nUseful for heap allocation and trait objects.\n```rust\nlet boxed = Box::new(99);\nassert_eq!(*boxed, 99);\n```"
+snippet = "Box::new(${1:value})"
+
+[method]
+name = "deref Box"
+meta = "std::ops"
+description = "Dereferences a `Box<T>` to access the inner value.\n\n`Box` implements the `Deref` trait, so you can use `*` to get the owned data.\n```rust\nlet b = Box::new(123);\nassert_eq!(*b, 123);\n```"
+snippet = "*${1:var}"
+
+[method]
+name = "clone Rc"
+meta = "std::rc"
+description = "Creates a new `Rc<T>` pointer to the same allocation, incrementing the reference count.\n\nCloning an `Rc` is a cheap operation and allows multiple ownership within a single thread.\n```rust\nuse std::rc::Rc;\n\nlet rc1 = Rc::new(5);\nlet rc2 = rc1.clone();\nassert_eq!(*rc1, *rc2);\n```"
+snippet = "clone()"
+
+[method]
+name = "Rc"
+meta = "std::rc"
+description = "Creates a new reference-counted pointer (`Rc<T>`) wrapping the given value.\n\nAllows shared ownership within a single thread.\n```rust\nuse std::rc::Rc;\n\nlet rc = Rc::new(42);\n```"
+snippet = "Rc::new(${1:value})"
+
+[method]
+name = "clone Arc"
+meta = "std::sync::arc"
+description = "Creates a new `Arc<T>` pointer to the same allocation, incrementing the reference count in a thread-safe manner.\n\nCloning an `Arc` is cheap and allows shared ownership across threads.\n```rust\nuse std::sync::Arc;\n\nlet arc1 = Arc::new(10);\nlet arc2 = arc1.clone();\nassert_eq!(*arc1, *arc2);\n```"
+snippet = "clone()"
+
+[method]
+name = "Arc"
+meta = "std::sync::arc"
+description = "Creates a new atomic reference-counted pointer (`Arc<T>`) wrapping the given value.\n\nAllows shared ownership across threads.\n```rust\nuse std::sync::Arc;\n\nlet arc = Arc::new(5);\n```"
+snippet = "Arc::new(${1:value})"
+
+[method]
+name = "borrow RefCell"
+meta = "std::cell"
+description = "Immutably borrows the wrapped value.\n\nPanics at runtime if the value is currently mutably borrowed.\nReturns a smart pointer (`Ref<T>`) that implements `Deref`.\n```rust\nuse std::cell::RefCell;\n\nlet cell = RefCell::new(10);\nassert_eq!(*cell.borrow(), 10);\n```"
+snippet = "borrow()"
+
+[method]
+name = "borrow_mut RefCell"
+meta = "std::cell"
+description = "Immutably borrows the wrapped value for mutation.\n\nPanics at runtime if the value is already mutably or immutably borrowed.\nReturns a smart pointer (`RefMut<T>`) that implements `DerefMut`.\n```rust\nuse std::cell::RefCell;\n\nlet cell = RefCell::new(5);\n*cell.borrow_mut() += 1;\nassert_eq!(*cell.borrow(), 6);\n```"
+snippet = "borrow_mut()"
+
+[method]
+name = "lock Mutex"
+meta = "std::sync::mutex"
+description = "Locks the mutex, blocking the current thread until it can be acquired.\n\nReturns a smart pointer (`MutexGuard<T>`) that implements `Deref` and `DerefMut` to access the inner data.\nPanics if the mutex is poisoned.\n```rust\nuse std::sync::Mutex;\n\nlet m = Mutex::new(10);\nlet mut data = m.lock().unwrap();\n*data += 1;\n```"
+snippet = "lock().unwrap()"
+
+[method]
+name = "Mutex"
+meta = "std::sync::mutex"
+description = "Creates a new `Mutex<T>` to wrap the given value.\n\nThe returned mutex allows safe, synchronized access across threads.\n```rust\nuse std::sync::Mutex;\n\nlet m = Mutex::new(5);\n```"
+snippet = "Mutex::new(${1:value})"
+
+[method]
+name = "downgrade Rc to Weak"
+meta = "std::rc"
+description = "Creates a `Weak<T>` pointer from a strong `Rc<T>` reference.\n\nThe resulting `Weak` pointer does not contribute to the reference count and can be used to break reference cycles.\n```rust\nuse std::rc::{Rc, Weak};\n\nlet rc = Rc::new(42);\nlet weak: Weak<i32> = Rc::downgrade(&rc);\n```"
+snippet = "downgrade(&${1:rc_var})"
+
+[method]
+name = "upgrade Weak to Rc"
+meta = "std::rc"
+description = "Attempts to upgrade a `Weak<T>` pointer to an `Rc<T>`, if the value still exists.\n\nReturns `Some(Rc<T>)` if the strong count is > 0, or `None` if the value has been dropped.\n```rust\nuse std::rc::{Rc, Weak};\n\nlet rc = Rc::new(100);\nlet weak = Rc::downgrade(&rc);\n\nif let Some(strong) = weak.upgrade() {\n    println!(\"Value: {}\", *strong);\n} else {\n    println!(\"Value was dropped\");\n}\n```"
+snippet = "upgrade()"
+
+[method]
+name = "downgrade Arc to Weak"
+meta = "std::sync::arc"
+description = "Creates a `Weak<T>` pointer from a strong `Arc<T>` reference.\n\nThe resulting `Weak` does not contribute to the strong reference count.\n```rust\nuse std::sync::{Arc, Weak};\n\nlet arc = Arc::new(10);\nlet weak: Weak<i32> = Arc::downgrade(&arc);\n```"
+snippet = "Arc::downgrade(&${1:arc_var})"
+
+[method]
+name = "upgrade Weak to Arc"
+meta = "std::sync::arc"
+description = "Attempts to upgrade a `Weak<T>` pointer to an `Arc<T>`, if the value still exists.\n\nReturns `Some(Arc<T>)` if the strong count is > 0, or `None` if the value has been dropped.\n```rust\nuse std::sync::{Arc, Weak};\n\nlet arc = Arc::new(5);\nlet weak = Arc::downgrade(&arc);\n\nif let Some(strong) = weak.upgrade() {\n    println!(\"Value: {}\", *strong);\n} else {\n    println!(\"Value was dropped\");\n}\n```"
+snippet = "upgrade()"
+
+[method]
+name = "try_unwrap Box"
+meta = "std::boxed"
+description = "Consumes a `Box<T>` and returns the inner value if the `Box` has a unique reference.\n\nReturns `Ok(T)` if successful, or `Err<Box<T>>` if there are other references.\n```rust\nuse std::boxed::Box;\n\nlet b = Box::new(123);\nmatch Box::try_unwrap(b) {\n    Ok(v) => println!(\"Unwrapped: {}\", v),\n    Err(b) => println!(\"Still boxed: {}\", *b),\n}\n```"
+snippet = "Box::try_unwrap(${1:box_var})"
+
+[method]
+name = "into_inner RefCell"
+meta = "std::cell"
+description = "Consumes the `RefCell`, returning the wrapped value.\n\nThis operation does not borrow or panic.\n```rust\nuse std::cell::RefCell;\n\nlet cell = RefCell::new(42);\nlet value = cell.into_inner();\nassert_eq!(value, 42);\n```"
+snippet = "into_inner()"
+
+[method]
+name = "get_mut Mutex"
+meta = "std::sync::mutex"
+description = "Returns a mutable reference to the inner data without
+locking.\n\nOnly safe to call when no other references exist.\n```rust\nuse
+std::sync::Mutex;\n\nlet mut data = Mutex::new(5);\n*data.get_mut().unwrap() = 10;n\nassert_eq!(*data.lock().unwrap(), 10);\n```"
+snippet = "get_mut().unwrap()"
