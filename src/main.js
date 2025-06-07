@@ -1,15 +1,17 @@
 import plugin from '../plugin.json';
-const { snippetManager } = ace.require("ace/snippets");
+const {
+	snippetManager
+} = ace.require("ace/snippets");
 
 const { editor} = editorManager;
+
 function getCurrentFileType(session) {
 	const sessionName = session.getMode().$id;
 	const parts = sessionName.split("/");
 	return parts[parts.length - 1];
 }
 
-/* Use DLS for parsing regex patern from .dls ,use dls because it better then
-const from old version */
+
 class DLSParser {
 	static parse(content) {
 		const snippets = [];
@@ -95,14 +97,16 @@ class AcodeRustIntegration {
 		if (this.prismLoaded) return;
 
 		try {
-			// CND prism.js
+			// Загружаем темную тему CSS для Prism
 			const prismCSS = document.createElement('link');
 			prismCSS.rel = 'stylesheet';
-			prismCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css';
+			prismCSS.href = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css';
 			document.head.appendChild(prismCSS);
-			
+
+			// Загружаем основной файл Prism
 			await this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js');
 			
+			// Загружаем компонент для Rust
 			await this.loadScript('https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-rust.min.js');
 
 			this.prismLoaded = true;
@@ -125,7 +129,7 @@ class AcodeRustIntegration {
 	processDescription(description) {
 		if (!description) return '';
 
-    /* replays rust code in better ui */
+		// Заменяем блоки кода с подсветкой синтаксиса
 		const codeBlockRegex = /```(\w+)?\s*([\s\S]*?)```/g;
 		return description.replace(codeBlockRegex, (match, language, code) => {
 			const lang = language || 'rust';
@@ -138,14 +142,14 @@ class AcodeRustIntegration {
 						window.Prism.languages[lang] || window.Prism.languages.rust || window.Prism.languages.plain,
 						lang
 					);
-					return `<pre class="language-${lang}" style="background: #f8f8f8; padding: 12px; border-radius: 6px; margin: 8px 0; overflow-x: auto; border-left: 4px solid #007acc;"><code class="language-${lang}">${highlightedCode}</code></pre>`;
+					return `<pre class="language-${lang}" style="background: #1e1e1e; padding: 12px; margin: 8px 0; overflow-x: auto; border-left: 4px solid #61dafb; color: #f8f8f2;"><code class="language-${lang}">${highlightedCode}</code></pre>`;
 				} catch (error) {
 					console.warn('Error highlighting code:', error);
 				}
 			}
 			
-			// Fallback null highlighting
-			return `<pre style="background: #f8f8f8; padding: 12px; border-radius: 6px; margin: 8px 0; overflow-x: auto; border-left: 4px solid #007acc;"><code>${escapedCode}</code></pre>`;
+			// Fallback без подсветки
+			return `<pre style="background: #1e1e1e; padding: 12px; margin: 8px 0; overflow-x: auto; border-left: 4px solid #61dafb; color: #f8f8f2;"><code>${escapedCode}</code></pre>`;
 		});
 	}
 
@@ -176,6 +180,7 @@ class AcodeRustIntegration {
 	}
 
 	createInfoButton() {
+		// Создаем кнопку
 		this.infoButton = document.createElement('button');
 		this.infoButton.innerHTML = '💡';
 		this.infoButton.style.cssText = `
@@ -185,7 +190,6 @@ class AcodeRustIntegration {
 	z-index: 1000;
 	background: transparent;
 	border: none;
-	border-radius: 50%;
 	width: 45px;
 	height: 45px;
 	font-size: 20px;
@@ -195,7 +199,7 @@ class AcodeRustIntegration {
 	transition: all 0.6s ease;
 `;
 
-    /* anim for Burton */
+		// Добавляем эффекты при наведении
 		this.infoButton.addEventListener('mouseenter', () => {
 			this.infoButton.style.transform = 'scale(1.1)';
 		});
@@ -204,12 +208,12 @@ class AcodeRustIntegration {
 			this.infoButton.style.transform = 'scale(1)';
 		});
 
-		// Handler click for open UI
+		// Обработчик клика
 		this.infoButton.addEventListener('click', () => {
 			this.showMethodInfo();
 		});
 
-    //Insert Button in Ace 
+		// Добавляем кнопку на страницу
 		document.body.appendChild(this.infoButton);
 	}
 
@@ -218,15 +222,15 @@ class AcodeRustIntegration {
 		const cursor = editor.getCursorPosition();
 		const line = session.getLine(cursor.row);
 		
-		// Find patern in cursor position 
+		// Ищем слово под курсором или рядом с ним
 		const wordRange = session.getWordRange(cursor.row, cursor.column);
 		const word = session.getTextRange(wordRange);
 		
-		// Around cursor patter
+		// Также проверяем слова слева и справа от курсора
 		const beforeCursor = line.substring(0, cursor.column);
 		const afterCursor = line.substring(cursor.column);
 		
-		// Insec most best patter
+		// Извлекаем потенциальные имена методов
 		const methodRegex = /([a-zA-Z_][a-zA-Z0-9_]*)::/g;
 		const matches = [...beforeCursor.matchAll(methodRegex), ...afterCursor.matchAll(methodRegex)];
 		
@@ -254,7 +258,37 @@ class AcodeRustIntegration {
 		
 		return foundMethod;
 	}
+  
+  getModalDimensions() {
+	const screenWidth = window.innerWidth;
+	const screenHeight = window.innerHeight;
 
+	let width, height, padding;
+
+	if (screenWidth <= 480) {
+		// Мобильные устройства — компактное окно
+		width = '80vw';
+		height = 'auto';
+		padding = '10px';
+	} else if (screenWidth <= 768) {
+		// Планшеты
+		width = '60vw';
+		height = 'auto';
+		padding = '12px';
+	} else if (screenWidth <= 1024) {
+		// Малые десктопы
+		width = '40vw';
+		height = 'auto';
+		padding = '15px';
+	} else {
+		// Большие экраны
+		width = '30vw';
+		height = 'auto';
+		padding = '18px';
+	}
+
+	return { width, height, padding };
+}
 	showMethodInfo() {
 		if (!this.currentMethodInfo) {
 			this.showNotification('Method not find', 'warning');
@@ -264,6 +298,8 @@ class AcodeRustIntegration {
 		const method = this.currentMethodInfo;
 		const processedDescription = this.processDescription(method.description);
 		const processedSnippet = method.snippet ? this.processDescription('```rust\n' + method.snippet + '\n```') : '';
+		
+		const { width, height, padding } = this.getModalDimensions();
 
 		const modalHTML = `
 			<div id="methodInfoModal" style="
@@ -272,43 +308,94 @@ class AcodeRustIntegration {
 				left: 0;
 				width: 100%;
 				height: 100%;
-				background: rgba(0,0,0,0.5);
+				background: rgba(0,0,0,0.8);
 				z-index: 10000;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 			">
 				<div style="
-					background: white;
-					padding: 25px;
-					border-radius: 12px;
-					max-width: 700px;
-					max-height: 85vh;
+					background: #1e1e1e;
+					color: #e0e0e0;
+					padding: ${padding};
+					width: ${width};
+					height: ${height};
 					overflow-y: auto;
-					box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+					box-shadow: 0 0 20px rgba(0,0,0,0.5);
 					font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+					border: 1px solid #333;
 				">
-					<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #f0f0f0; padding-bottom: 15px;">
-						<h2 style="margin: 0; color: #333; font-size: 24px;">📖 ${method.name || 'Method'}</h2>
+					<div style="
+						display: flex; 
+						justify-content: space-between; 
+						align-items: center; 
+						margin-bottom: 20px; 
+						border-bottom: 1px solid #333; 
+						padding-bottom: 15px;
+					">
+						<h2 style="
+							margin: 0; 
+							color: #61dafb; 
+							font-size: clamp(18px, 4vw, 24px);
+							font-weight: bold;
+						">📖 ${method.name || 'Method'}</h2>
 						<button onclick="this.closest('#methodInfoModal').remove()" style="
-							background: #ff4444;
+							background: #dc3545;
 							border: none;
-							border-radius: 50%;
-							width: 32px;
-							height: 32px;
+							width: 30px;
+							height: 30px;
 							color: white;
 							cursor: pointer;
-							font-size: 18px;
+							font-size: 16px;
 							display: flex;
 							align-items: center;
 							justify-content: center;
+							font-weight: bold;
 						">×</button>
 					</div>
-					<div style="color: #555; line-height: 1.7; font-size: 15px;">
-						${processedDescription ? `<div style="margin-bottom: 20px;"><strong style="color: #007acc; font-size: 16px;">Description:</strong><div style="margin-top: 8px;">${processedDescription}</div></div>` : ''}
-						${processedSnippet ? `<div style="margin-bottom: 20px;"><strong style="color: #007acc; font-size: 16px;">Pattern:</strong><div style="margin-top: 8px;">${processedSnippet}</div></div>` : ''}
-						${method.meta ? `<p style="margin: 10px 0;"><strong style="color: #007acc;">Type:</strong> <span style="background: #e8f4fd; padding: 4px 8px; border-radius: 4px; font-family: monospace;">${method.meta}</span></p>` : ''}
-						${method.fileTypes ? `<p style="margin: 10px 0;"><strong style="color: #007acc;">File Types:</strong> <span style="background: #e8f4fd; padding: 4px 8px; border-radius: 4px; font-family: monospace;">${Array.isArray(method.fileTypes) ? method.fileTypes.join(', ') : method.fileTypes}</span></p>` : ''}
+					<div style="
+						color: #e0e0e0; 
+						line-height: 1.6; 
+						font-size: clamp(13px, 2.5vw, 15px);
+						overflow-wrap: break-word;
+						word-wrap: break-word;
+					">
+						${processedDescription ? `
+							<div style="margin-bottom: 20px;">
+								<strong style="color: #61dafb; font-size: clamp(14px, 3vw, 16px);">Description:</strong>
+								<div style="margin-top: 8px;">${processedDescription}</div>
+							</div>
+						` : ''}
+						${processedSnippet ? `
+							<div style="margin-bottom: 20px;">
+								<strong style="color: #61dafb; font-size: clamp(14px, 3vw, 16px);">Pattern:</strong>
+								<div style="margin-top: 8px;">${processedSnippet}</div>
+							</div>
+						` : ''}
+						${method.meta ? `
+							<p style="margin: 10px 0;">
+								<strong style="color: #61dafb;">Type:</strong> 
+								<span style="
+									background: #2d2d2d; 
+									padding: 4px 8px; 
+									font-family: 'Consolas', monospace;
+									color: #98d982;
+									border: 1px solid #444;
+								">${method.meta}</span>
+							</p>
+						` : ''}
+						${method.fileTypes ? `
+							<p style="margin: 10px 0;">
+								<strong style="color: #61dafb;">File Types:</strong> 
+								<span style="
+									background: #2d2d2d; 
+									padding: 4px 8px; 
+									font-family: 'Consolas', monospace;
+									color: #98d982;
+									border: 1px solid #444;
+								">${Array.isArray(method.fileTypes) ? method.fileTypes.join(', ') : method.fileTypes}</span>
+							</p>
+						` : ''}
 					</div>
 				</div>
 			</div>
@@ -348,13 +435,13 @@ class AcodeRustIntegration {
 			top: 20px;
 			right: 20px;
 			padding: 12px 20px;
-			border-radius: 5px;
 			color: white;
 			z-index: 9999;
 			font-family: Arial, sans-serif;
 			max-width: 300px;
-			box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+			box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 			background: ${type === 'warning' ? '#ff9800' : '#2196F3'};
+			border: 1px solid ${type === 'warning' ? '#e68900' : '#1976D2'};
 		`;
 		notification.textContent = message;
 		

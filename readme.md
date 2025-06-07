@@ -1,6 +1,8 @@
 # Rust Small IntelliSense
 **In BETA (Have some bug)**
 
+![template](ссылка_на_gif.gif)
+
 
 1. Click on method in editor or write and click, and open 💡 for checking doc
 2. Write code for show snippets 

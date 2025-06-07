@@ -257,19 +257,19 @@ snippet = "String::new()"
 prefix = "strfrom"
 fileTypes = "rust"
 description = "String from"
-snippet = "String::from(\"${1:text}\")"
+snippet = "String::from("${1:text}")"
 
 [snippet]
 prefix = "format"
 fileTypes = "rust"
 description = "format macro"
-snippet = "format!(\"${1:format}\", ${2:args})"
+snippet = "format!("${1:format}", ${2:args})"
 
 [snippet]
 prefix = "print"
 fileTypes = "rust"
 description = "print macro"
-snippet = "print!(\"${1:text}\");"
+snippet = "print!("${1:text}");"
 
 [snippet]
 prefix = "println"
